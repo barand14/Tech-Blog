@@ -25,7 +25,9 @@ BlogPosts.init(
 	},
 	{
 		sequelize,
-		modelName: 'blogPosts'
+		modelName: 'blogPosts',
+		freezeTableName: true,
+        underscored: true,
 	}
 );
 
