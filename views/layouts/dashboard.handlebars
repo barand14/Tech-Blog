@@ -1,0 +1,44 @@
+<section style="width: 50%; margin:auto;">
+    <h2 style="text-align: center;">Create New Post</h2>
+    <form class="new-post-form">
+        <div class="card-body" style="font-size: 20px; border:solid">
+            <label for="post-title">Title</label>
+            <div style="margin-bottom: 20px; margin-top: 20px">
+                <input type="text" id="post-title" name="post-title" style="width: 100%" />
+            </div>
+            <label for="post-content">Content</label>
+            <div style="margin-bottom: 20px; margin-top: 20px">
+                <input type="text" id="post-content" name="post-content" style="width: 100%" />
+            </div>
+            <div>
+                <button style="width: 100%;" type="submit">Create</button>
+            </div>
+        </div>
+    </form>
+</section>
+
+{{#if posts.length}}
+<h2 style="text-align: center;">Your Post</h2>
+<div style="width: 90%; margin:auto">
+    <ol class="post-list">
+        {{#each posts}}
+        <div class="post" style="border:solid;">
+            <div class="card col-12">
+                <div class="card-header" style="background-color:rgb(40, 41, 33)" ;>
+                    <p class="text-left" style="font-size:20px; color: white">{{title}}</p>
+                    <p class="text-right" style="font-size: 15px; color: white"> Posted by {{user.username}} on
+                        {{format_date created_at}}</p>
+                </div>
+                <div class="card-body">
+                    <p>{{content}}</p>
+                    <a href="/dashboard/edit/{{id}}" class="edit-link">Edit post</a>
+                </div>
+
+            </div>
+        </div>
+        {{/each}}
+    </ol>
+</div>
+{{/if}}
+
+<script src="/js/add-post.js"></script>
